@@ -19,3 +19,10 @@ Set a threshold to ensure accurate matches.
 Organize columns in the order: Instrument Name, Kotak ID, Fyers ID, Angel One ID, Zerodha ID.
 5. Save the final output as an csv file
 
+For this project,<br>
+<i>kotak.csv, angelone.csv, fyers,csv</i> and <i> zerodha.csv</i> are the input files on which we perform the task. <br>
+The task of data collection can be found in <i>data collection.ipynb</i><br>
+<i>final_mapping.ipynb</i> contains the final task.<br>
+The final output can be vieed in <i>final_mapping.csv</i>
+
+
