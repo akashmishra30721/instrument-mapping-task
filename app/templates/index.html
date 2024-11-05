@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+</head>
+<body>
+    <h1>Search Instruments</h1>
+
+    <!-- Form for searching by Broker and Symbol -->
+    <form action="/search_by_broker_symbol" method="get">
+        <label for="broker">Broker:</label>
+        <select id="broker" name="broker">
+            <option value="">Select a broker</option>
+            <option value="kotak">Kotak</option>
+            <option value="fyers">Fyers</option>
+            <option value="angel">Angel One</option>
+            <option value="zerodha">Zerodha</option>
+            
+        </select>
+        <br><br>
+
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol" placeholder="Enter symbol">
+        <br><br>
+
+        <input type="submit" value="Search by Broker and Symbol">
+    </form>
+
+    <br><br>
+
+    <!-- Form for searching by Instrument Name -->
+    <form action="/search_by_instrument_name" method="get">
+        <label for="instrumentName">Instrument Name:</label>
+        <input type="text" id="instrumentName" name="instrumentName" placeholder="Enter instrument name">
+        <br><br>
+
+        <input type="submit" value="Search by Instrument Name">
+    </form>
+</body>
+</html>
