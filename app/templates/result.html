@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .filter-input {
+            margin-bottom: 15px;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        function filterHeaders() {
+            let filter = document.getElementById("headerFilter").value.toUpperCase();
+            let table = document.getElementById("resultTable");
+            let headerRow = table.getElementsByTagName("tr")[0];
+            let headers = headerRow.getElementsByTagName("th");
+            
+            for (let i = 0; i < headers.length; i++) {
+                let headerText = headers[i].textContent || headers[i].innerText;
+                if (headerText.toUpperCase().indexOf(filter) > -1) {
+                    headers[i].style.display = "";
+                } else {
+                    headers[i].style.display = "none";
+                }
+            }
+
+            // Hide/show corresponding table cells in each row
+            let rows = table.getElementsByTagName("tr");
+            for (let i = 1; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                for (let j = 0; j < cells.length; j++) {
+                    cells[j].style.display = headers[j].style.display;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <!-- Search box for filtering headers -->
+    <input type="text" id="headerFilter" class="filter-input" onkeyup="filterHeaders()" placeholder="Search column headers...">
+    
+    {% if result %}
+        <div>
+            {{ result | safe }}
+        </div>
+        <script>
+            // Add an ID to the generated table for header filtering
+            document.querySelector("table").setAttribute("id", "resultTable");
+        </script>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Back to Search</a>
+</body>
+</html>
